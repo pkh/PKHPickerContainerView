@@ -1,7 +1,7 @@
 PKHPickerContainerView
 ======================
 
-PKHPickerContainerView is a UIView subclass that includes a UIPickerView with a navigation bar placed on top. This container view is designed to slide up from the bottom of the screen like the keyboard. It is written all in code and Interface Builder is not used.
+A simple UIView subclass to display a UIPickerView with accompanying navigation bar with keyboard-like hide/show animations.
 
 PKHPickerContainerView was originally written in Xcode 4.5.2 and uses ARC.
 
