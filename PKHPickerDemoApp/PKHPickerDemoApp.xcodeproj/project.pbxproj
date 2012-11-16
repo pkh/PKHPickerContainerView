@@ -16,6 +16,8 @@
 		7F86E0DA1651D7D500245FB4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86E0D91651D7D500245FB4 /* Default.png */; };
 		7F86E0DC1651D7D500245FB4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86E0DB1651D7D500245FB4 /* Default@2x.png */; };
 		7F86E0DE1651D7D500245FB4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F86E0DD1651D7D500245FB4 /* Default-568h@2x.png */; };
+		7F9FCD361655D324004DA6F5 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9FCD351655D324004DA6F5 /* DemoViewController.m */; };
+		7FEBF2851655FD3D002B16C0 /* PKHPickerContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FEBF2841655FD3D002B16C0 /* PKHPickerContainerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,10 @@
 		7F86E0D91651D7D500245FB4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		7F86E0DB1651D7D500245FB4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7F86E0DD1651D7D500245FB4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7F9FCD341655D324004DA6F5 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		7F9FCD351655D324004DA6F5 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		7FEBF2831655FD3D002B16C0 /* PKHPickerContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PKHPickerContainerView.h; path = ../../PKHPickerContainerView.h; sourceTree = "<group>"; };
+		7FEBF2841655FD3D002B16C0 /* PKHPickerContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PKHPickerContainerView.m; path = ../../PKHPickerContainerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +86,10 @@
 			children = (
 				7F86E0D61651D7D500245FB4 /* AppDelegate.h */,
 				7F86E0D71651D7D500245FB4 /* AppDelegate.m */,
+				7F9FCD341655D324004DA6F5 /* DemoViewController.h */,
+				7F9FCD351655D324004DA6F5 /* DemoViewController.m */,
+				7FEBF2831655FD3D002B16C0 /* PKHPickerContainerView.h */,
+				7FEBF2841655FD3D002B16C0 /* PKHPickerContainerView.m */,
 				7F86E0CE1651D7D500245FB4 /* Supporting Files */,
 			);
 			path = PKHPickerDemoApp;
@@ -166,6 +176,8 @@
 			files = (
 				7F86E0D41651D7D500245FB4 /* main.m in Sources */,
 				7F86E0D81651D7D500245FB4 /* AppDelegate.m in Sources */,
+				7F9FCD361655D324004DA6F5 /* DemoViewController.m in Sources */,
+				7FEBF2851655FD3D002B16C0 /* PKHPickerContainerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +286,7 @@
 				7F86E0E31651D7D500245FB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

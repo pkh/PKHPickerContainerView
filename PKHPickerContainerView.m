@@ -31,19 +31,26 @@
 
 #define kSelfHeight 260
 #define kSelfWidth 320
-#define kSelfHeight_STATUSBAR_NAVBAR 324
 
 
-#define kPickerContainerView_CGRect_OFFSCREEN CGRectMake(0, ([UIScreen mainScreen].bounds.size.height+1), self.bounds.size.width, 260)
-#define kPickerContainerView_CGRect_ONSCREEN CGRectMake(0, ([UIScreen mainScreen].bounds.size.height-kSelfHeight_STATUSBAR_NAVBAR), kSelfWidth, 260)
+#define kSHOW_OFFSCREEN CGRectMake(0, ([UIScreen mainScreen].bounds.size.height+1), kSelfWidth, kSelfHeight);
+#define kSHOW_ONSCREEN CGRectMake(0, (self.parentView.bounds.size.height-kSelfHeight), kSelfWidth, kSelfHeight);
+
+
+@interface PKHPickerContainerView ()
+@property (nonatomic) UIView *parentView;
+@end
 
 
 @implementation PKHPickerContainerView
 
-- (id)init {
+- (id)initWithinView:(UIView *)view {
     if (self = [super init]) {
         
-        self.frame = kPickerContainerView_CGRect_OFFSCREEN;
+        self.parentView = [[UIView alloc] init];
+        self.parentView = view;
+
+        self.frame = kSHOW_OFFSCREEN;
         
         self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, kSelfWidth, 44)];
         
@@ -63,7 +70,7 @@
 - (void)showPickerContainerView {
     
     [UIView animateWithDuration:0.333 animations:^ {
-        self.frame = kPickerContainerView_CGRect_ONSCREEN;
+        self.frame = kSHOW_ONSCREEN
     }];
     
 }
@@ -72,9 +79,12 @@
 - (void)hidePickerContainerView {
     
     [UIView animateWithDuration:0.333 animations:^ {
-        self.frame = kPickerContainerView_CGRect_OFFSCREEN;
+        self.frame = kSHOW_OFFSCREEN;
     }];
     
 }
+
+
+
 
 @end

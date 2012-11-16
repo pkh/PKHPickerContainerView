@@ -36,6 +36,9 @@
 @property (nonatomic) UIBarButtonItem *doneButton;
 @property (nonatomic) UIBarButtonItem *cancelButton;
 
+
+- (id)initWithinView:(UIView *)view;
+
 - (void)showPickerContainerView;
 - (void)hidePickerContainerView;
 
