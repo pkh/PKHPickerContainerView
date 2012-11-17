@@ -14,11 +14,7 @@ There are only two files to add to your project:
 - PKHPickerContainerView.h
 - PKHPickerContainerView.m
 
-Once you have both added to your project, import the header file into the view controller you wish to use it in:
-
-```objective-c
-\#import "PKHPickerContainerView.h"
-````
+Once you have both added to your project, import the `PKHPickerContainerView.h` header file into the view controller you wish to use it in:
 
 Then implement the UIPickerView Data Source and Delegate protocols and add the picker container view as a property:
 
@@ -40,7 +36,7 @@ Initialize the object and pass it the view it will be shown within (typically se
 self.pickerContainerView = [[PKHPickerContainerView alloc] initWithinView:self.view];
 ````
 
-Set it's data source and delegate:
+Set its data source and delegate:
 ```objective-c
 [self.pickerContainerView.pickerView setDataSource:self];
 [self.pickerContainerView.pickerView setDelegate:self];
