@@ -3,7 +3,7 @@ PKHPickerContainerView
 
 A UIView subclass to display a UIPickerView, with accompanying navigation bar, using keyboard or UIActionSheet-like hide/show animations.
 
-PKHPickerContainerView was originally written in Xcode 4.5.2 and uses ARC. It does not use Interface Builder and is compatible out of the box with the iPhone 4/4S and iPhone 5 screen sizes.
+PKHPickerContainerView was originally written in Xcode 4.5.2 and uses ARC. It does not use Interface Builder and is compatible out-of-the-box with the iPhone 4/4S and iPhone 5 screen sizes.
 
 ![screenshot](https://dl.dropbox.com/u/503108/pkhpickercontainerview-screenshot.png)
 
@@ -14,7 +14,7 @@ There are only two files to add to your project:
 - PKHPickerContainerView.h
 - PKHPickerContainerView.m
 
-Once you have both added to your project, import the `PKHPickerContainerView.h` header file into the view controller you wish to use it in:
+Once you have both added to your project, in the header file of the view controller you wish to use the picker view, import the `PKHPickerContainerView.h` file.
 
 Then implement the UIPickerView Data Source and Delegate protocols and add the picker container view as a property:
 
