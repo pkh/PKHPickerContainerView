@@ -54,6 +54,11 @@
         
         self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, kSelfWidth, 44)];
         
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) { // for iOS 7 and above
+            [self.navigationBar setTintColor:[UIColor whiteColor]];
+            [self.navigationBar setBarTintColor:[UIColor blackColor]];
+        }
+        
         self.pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 44, kSelfWidth, 216)];
         self.pickerView.showsSelectionIndicator = YES;
         
