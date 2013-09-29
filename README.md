@@ -6,6 +6,7 @@ A UIView subclass to display a UIPickerView, with accompanying navigation bar, u
 PKHPickerContainerView was originally written in Xcode 4.5.2 and uses ARC. It does not use Interface Builder and is compatible out-of-the-box with the iPhone 4/4S and iPhone 5 screen sizes.
 
 ![screenshot](https://dl.dropbox.com/u/503108/pkhpickercontainerview-screenshot.png)
+![screenshot2](https://dl.dropboxusercontent.com/u/503108/pkhpickercontainerview-screenshot-02.png)
 
 ## Installation
 
