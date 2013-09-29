@@ -30,7 +30,7 @@
 
 @interface PKHPickerContainerView : UIView
 
-@property (nonatomic) UINavigationBar *navigationBar;
+@property (nonatomic) UIToolbar *toolbar;
 @property (nonatomic) UIPickerView *pickerView;
 
 @property (nonatomic) UIBarButtonItem *doneButton;
@@ -41,5 +41,7 @@
 
 - (void)showPickerContainerView;
 - (void)hidePickerContainerView;
+
+- (void)setToolbarItems:(NSArray *)toolbarItems;
 
 @end

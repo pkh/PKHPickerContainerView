@@ -74,13 +74,11 @@
         [self.pickerContainerView.pickerView setDataSource:self];
         [self.pickerContainerView.pickerView setDelegate:self];
         
-        UINavigationItem *navItem = [[UINavigationItem alloc] init];
         UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonAction:)];
         UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonAction:)];
-        [navItem setRightBarButtonItem:doneButton];
-        [navItem setLeftBarButtonItem:cancelButton];
-        [self.pickerContainerView.navigationBar setItems:[NSArray arrayWithObject:navItem]];
-        [self.pickerContainerView.navigationBar setBarStyle:UIBarStyleBlack];
+        UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        
+        [self.pickerContainerView setToolbarItems:@[cancelButton,spacer,doneButton]];
         
         [self.view addSubview:self.pickerContainerView];
         

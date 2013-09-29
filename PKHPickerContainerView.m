@@ -52,17 +52,19 @@
 
         self.frame = kSHOW_OFFSCREEN;
         
-        self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, kSelfWidth, 44)];
+        self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, kSelfWidth, 44)];
         
         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1) { // for iOS 7 and above
-            [self.navigationBar setTintColor:[UIColor whiteColor]];
-            [self.navigationBar setBarTintColor:[UIColor blackColor]];
+            [self.toolbar setTintColor:[UIColor whiteColor]];
+            [self.toolbar setBarTintColor:[UIColor blackColor]];
+        } else {
+            [self.toolbar setBarStyle:UIBarStyleBlack];
         }
         
         self.pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 44, kSelfWidth, 216)];
         self.pickerView.showsSelectionIndicator = YES;
         
-        [self addSubview:self.navigationBar];
+        [self addSubview:self.toolbar];
         [self addSubview:self.pickerView];
     }
     
@@ -89,7 +91,12 @@
     
 }
 
+#pragma mark - 
 
+- (void)setToolbarItems:(NSArray *)toolbarItems {
+    self.toolbar.items = nil;
+    self.toolbar.items = toolbarItems;
+}
 
 
 @end
