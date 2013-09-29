@@ -45,13 +45,10 @@ Set its data source and delegate:
 
 Then configure the navigation bar with whatever buttons or attributes you want, tying the buttons to actions within your view controller:
 ```objective-c
-UINavigationItem *navItem = [[UINavigationItem alloc] init];
 UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonAction:)];
 UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonAction:)];
-[navItem setRightBarButtonItem:doneButton];
-[navItem setLeftBarButtonItem:cancelButton];
-[self.pickerContainerView.navigationBar setItems:[NSArray arrayWithObject:navItem]];
-[self.pickerContainerView.navigationBar setBarStyle:UIBarStyleBlack];
+UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];        
+[self.pickerContainerView setToolbarItems:@[cancelButton,spacer,doneButton]];
 ````
 
 Then add the pickerContainerView to your view (it starts out offscreen), and then call its showPickerContainerViewMethod:
@@ -60,7 +57,7 @@ Then add the pickerContainerView to your view (it starts out offscreen), and the
 [self.pickerContainerView showPickerContainerView];
 ````
 
-Within your navigation bar button actions, you can hide the pickerContainerView, as well as gather chosen data within the "Done button action".
+Within your toolbar bar button actions, you can hide the pickerContainerView, as well as gather chosen data within the "Done" button action.
 
 Gather chosen data:
 ```objective-c
