@@ -38,19 +38,24 @@
 
 
 @interface PKHPickerContainerView ()
+
 @property (nonatomic) UIView *parentView;
+
+@property PKHPickerType pickerType;
+
 @end
 
 
 @implementation PKHPickerContainerView
 
-- (instancetype)initWithinView:(UIView *)view {
+- (instancetype)initWithinView:(UIView *)view withType:(PKHPickerType)type; {
     if (self = [super init]) {
         
         self.parentView = [[UIView alloc] init];
         self.parentView = view;
 
         self.frame = kSHOW_OFFSCREEN;
+        
         
         self.toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, kSelfWidth, 44)];
         
@@ -61,16 +66,30 @@
             [self.toolbar setBarStyle:UIBarStyleBlack];
         }
         
-        self.pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 44, kSelfWidth, 216)];
-        self.pickerView.showsSelectionIndicator = YES;
         
+        self.pickerType = type;
+        
+        if (type == PKHPickerTypeDatePicker) {
+            self.datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, kSelfWidth, 216)];
+        } else {
+            self.pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 44, kSelfWidth, 216)];
+            self.pickerView.showsSelectionIndicator = YES;
+        }
+        
+
         [self addSubview:self.toolbar];
-        [self addSubview:self.pickerView];
+        [self addSubview:(type == PKHPickerTypeDatePicker) ? self.datePicker : self.pickerView];
     }
     
     return self;
 }
 
+- (void)setPickerDataSourceAndDelegate:(id)object {
+    if (self.pickerView) {
+        [self.pickerView setDataSource:object];
+        [self.pickerView setDelegate:object];
+    }
+}
 
 #pragma mark - Show/hide view
 
@@ -96,6 +115,14 @@
 - (void)setToolbarItems:(NSArray *)toolbarItems {
     self.toolbar.items = nil;
     self.toolbar.items = toolbarItems;
+}
+
+- (NSDate *)dateFromDatePicker {
+    if (self.datePicker) {
+        return [self.datePicker date];
+    } else {
+        return nil;
+    }
 }
 
 

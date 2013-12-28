@@ -22,7 +22,6 @@
 {
     [super viewDidLoad];
 
-    
     self.pickerData = @[@"Item 1", @"Item 2",@"Item 3",@"Item 4"];
     
     UIButton *showButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -70,9 +69,8 @@
 - (void)pickerButtonAction {
     
     if (!self.pickerContainerView) {
-        self.pickerContainerView = [[PKHPickerContainerView alloc] initWithinView:self.view];
-        [self.pickerContainerView.pickerView setDataSource:self];
-        [self.pickerContainerView.pickerView setDelegate:self];
+        self.pickerContainerView = [[PKHPickerContainerView alloc] initWithinView:self.view withType:PKHPickerTypeDatePicker];
+        [self.pickerContainerView setPickerDataSourceAndDelegate:self];
         
         UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonAction)];
         UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonAction)];
@@ -90,9 +88,13 @@
 
 - (void)doneButtonAction {
     
-    NSLog(@"Chosen: %@",[self.pickerData objectAtIndex:[self.pickerContainerView.pickerView selectedRowInComponent:0]]);
+    /* Example using date picker */
+    NSLog(@"Date: %@",[self.pickerContainerView dateFromDatePicker]);
+    self.myLabel.text = [NSString stringWithFormat:@"%@",[self.pickerContainerView dateFromDatePicker]];
     
-    self.myLabel.text = [NSString stringWithFormat:@"%@",[self.pickerData objectAtIndex:[self.pickerContainerView.pickerView selectedRowInComponent:0]]];
+    /* Example using standard picker */
+    //NSLog(@"Chosen: %@",[self.pickerData objectAtIndex:[self.pickerContainerView.pickerView selectedRowInComponent:0]]);
+    //self.myLabel.text = [NSString stringWithFormat:@"%@",[self.pickerData objectAtIndex:[self.pickerContainerView.pickerView selectedRowInComponent:0]]];
     
     [self.pickerContainerView hidePickerContainerView];
     self.pickerContainerView = nil;

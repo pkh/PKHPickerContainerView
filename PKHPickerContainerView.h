@@ -28,20 +28,31 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, PKHPickerType) {
+    PKHPickerTypeCustom = 0,
+    PKHPickerTypeDatePicker
+};
+
+
 @interface PKHPickerContainerView : UIView
 
 @property (nonatomic) UIToolbar *toolbar;
 @property (nonatomic) UIPickerView *pickerView;
+@property (nonatomic) UIDatePicker *datePicker;
 
 @property (nonatomic) UIBarButtonItem *doneButton;
 @property (nonatomic) UIBarButtonItem *cancelButton;
 
 
-- (instancetype)initWithinView:(UIView *)view;
+- (instancetype)initWithinView:(UIView *)view withType:(PKHPickerType)type;
+
+- (void)setPickerDataSourceAndDelegate:(id)object;
 
 - (void)showPickerContainerView;
 - (void)hidePickerContainerView;
 
 - (void)setToolbarItems:(NSArray *)toolbarItems;
+
+- (NSDate *)dateFromDatePicker;
 
 @end
