@@ -28,7 +28,7 @@
     UIButton *showButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     showButton.frame = CGRectMake(10, 50, 300, 44);
     [showButton setTitle:@"Show Picker" forState:UIControlStateNormal];
-    [showButton addTarget:self action:@selector(pickerButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [showButton addTarget:self action:@selector(pickerButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:showButton];
     
     self.myLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, 320, 80)];
@@ -67,15 +67,15 @@
 
 #pragma mark - Button Actions
 
-- (void)pickerButtonAction:(id)sender {
+- (void)pickerButtonAction {
     
     if (!self.pickerContainerView) {
         self.pickerContainerView = [[PKHPickerContainerView alloc] initWithinView:self.view];
         [self.pickerContainerView.pickerView setDataSource:self];
         [self.pickerContainerView.pickerView setDelegate:self];
         
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonAction:)];
-        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonAction:)];
+        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneButtonAction)];
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonAction)];
         UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
         
         [self.pickerContainerView setToolbarItems:@[cancelButton,spacer,doneButton]];
@@ -88,7 +88,7 @@
 }
 
 
-- (void)doneButtonAction:(id)sender {
+- (void)doneButtonAction {
     
     NSLog(@"Chosen: %@",[self.pickerData objectAtIndex:[self.pickerContainerView.pickerView selectedRowInComponent:0]]);
     
@@ -99,7 +99,7 @@
     
 }
 
-- (void)cancelButtonAction:(id)sender {
+- (void)cancelButtonAction {
     
     [self.pickerContainerView hidePickerContainerView];
     self.pickerContainerView = nil;

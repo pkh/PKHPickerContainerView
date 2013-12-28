@@ -44,7 +44,7 @@
 
 @implementation PKHPickerContainerView
 
-- (id)initWithinView:(UIView *)view {
+- (instancetype)initWithinView:(UIView *)view {
     if (self = [super init]) {
         
         self.parentView = [[UIView alloc] init];
